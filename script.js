@@ -1,19 +1,16 @@
 function getComputerChoice() {
-    let selection
     let randInt = Math.floor(Math.random() * 3);
     if (randInt === 0) {
-        selection = 'rock'
+        return 'rock'
     } else if (randInt === 1) {
-        selection = 'paper'
+        return 'paper'
     } else {
-        selection = 'scissors'
+        return 'scissors'
     };
-    return selection
 }
 
 function getPlayerChoice() {
-    let selection = prompt('rock, paper, or scissors?').toLowerCase()
-    return selection
+    return prompt('rock, paper, or scissors?').toLowerCase()
 }
 
 function playRound() {
