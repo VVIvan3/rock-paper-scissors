@@ -10,7 +10,7 @@ function getComputerChoice() {
 }
 
 function getPlayerChoice() {
-    return prompt('rock, paper, or scissors?').toLowerCase()
+    return prompt('rock, paper, or scissors?').toLowerCase();
 }
 
 function playRound() {
@@ -48,6 +48,6 @@ function game() {
         console.log('Computer won!');
         onGoing = false;
     }
-    }
+    };
 }
 game();
