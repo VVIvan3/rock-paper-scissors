@@ -1,3 +1,36 @@
+let playerScore = 0
+let computerScore = 0
+const scoreBox = document.querySelector('.scoreBox');
+const gameButtons = document.querySelectorAll('.btn');
+const scoreText = document.querySelector('#scoreText');
+gameButtons.forEach((button) => {
+    button.addEventListener('click', (event) => {
+        switch (event.target.id) {
+            case 'rock':
+                playRound('rock')
+                break;
+            case 'paper':
+                playRound('paper')
+                break;
+            case 'scissors':
+                playRound('scissors')
+                break;
+        };
+        checkResults()
+    })
+});
+
+
+function checkResults() {
+    scoreText.textContent = `Player score: ${playerScore} | Computer score: ${computerScore}`
+    if (playerScore === 5 ) {
+        scoreText.textContent = 'Player Won!';
+    } else if (computerScore === 5) {
+        scoreText.textContent = 'Computer Won!';
+    }  
+}
+
+
 function getComputerChoice() {
     let randInt = Math.floor(Math.random() * 3);
     if (randInt === 0) {
@@ -13,25 +46,22 @@ function getPlayerChoice() {
     return prompt('rock, paper, or scissors?').toLowerCase();
 }
 
-function playRound() {
-    computerSelection = getComputerChoice();
-    playerSelection = getPlayerChoice();
+function playRound(playerSelection) {
+    const computerSelection = getComputerChoice();
     if (playerSelection === computerSelection) {
-        return 0;
+        return 0; //MAKE IT ANNOUNCE TIE
     } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-        return 2;
+        ++playerScore;
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-        return 2;
+        ++playerScore;
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        return 2;
+        ++playerScore;
     } else {
-        return 1;
+        ++computerScore;
     }
 }
 
 function game() {
-    let playerScore = 0;
-    let computerScore = 0;
     let onGoing = true;
     while (onGoing) {
         let round = playRound()
@@ -50,4 +80,4 @@ function game() {
     }
     };
 }
-game();
+// game();
