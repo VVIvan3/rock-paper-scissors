@@ -80,7 +80,7 @@ function playRound(playerSelection) {
         logging(playerSelection, computerSelection, 'player');
     } else if (playerSelection === 'paper' && computerSelection === 'rock' && !isWon) {
         ++playerScore;
-        logging(playerSelection, computerSelection, 'player' && !isWon);
+        logging(playerSelection, computerSelection, 'player');
     } else if (!isWon) {
         ++computerScore;
         logging(playerSelection, computerSelection);
