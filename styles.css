@@ -12,11 +12,12 @@ body {
 }
 
 .scoreBox {
-    background-color: black;
+    background-color: rgb(41, 38, 38);
     flex-grow: 1;
     flex-basis: 150px;
     justify-content: center;
     align-items: center;
+    filter: drop-shadow(0px 20px 10px black);
 }
 .gameBox {
     background-color: goldenrod;
@@ -25,14 +26,17 @@ body {
     justify-content: space-evenly;
     align-items: center;
     padding: 30px;
+    flex-wrap: wrap;
 }
 
 .logBox {
-    /* background-color: papayawhip; */
     display: flex;
-    justify-content: center;
-    padding: 5px;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    padding-top: 18px;
     flex-grow: 2;
+    
 }
 
 .btn {
@@ -41,6 +45,14 @@ body {
     background-color: wheat;
     flex-grow: 0;
     flex-shrink: 1;
+    display: flex;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px black;
+}
+
+img {
+    padding: 32px;
+    flex: 1;
 }
 
 #scoreText {
@@ -48,9 +60,19 @@ body {
     text-align: center;
     font-weight: bolder;
     font-size: 50px;
+    border: dotted 5px gold;
+    padding: 1px 10px;
 }
 
 ul {
     max-height: 1px;
     background-color: wheat;
+}
+
+#delBtn {
+    border-radius: 10px;
+    background-color: azure;
+    border: none;
+    padding: 6px 14px;
+    box-shadow: 2px 2px 15px black;
 }

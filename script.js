@@ -3,9 +3,10 @@ let computerScore = 0;
 let isWon = false;
 
 const scoreBox = document.querySelector('.scoreBox');
-const gameButtons = document.querySelectorAll('.btn');
+const gameButtons = document.querySelectorAll('.imgBtn');
 const scoreText = document.querySelector('#scoreText');
 const logText = document.querySelector('#logText');
+const delLog = document.querySelector('#delBtn');
 
 gameButtons.forEach((button) => {
     button.addEventListener('click', (event) => {
@@ -21,7 +22,14 @@ gameButtons.forEach((button) => {
                 break;
         };
         checkResults();
-    })
+    });
+});
+
+delLog.addEventListener('click', () => {
+    const logElems = document.querySelectorAll('.log')
+    logElems.forEach((elem) => {
+        logText.removeChild(elem);
+    });
 });
 
 function gameRestart() {
@@ -40,6 +48,7 @@ function logging(playerSelection, computerSelection, condition='computer') {
     } else {
         listElement.textContent = `Computer won this round, ${computerSelection} beat ${playerSelection}`;
     };
+    listElement.setAttribute('class', 'log')
     logText.insertBefore(listElement, logText.firstChild);
 }
 function checkResults() {
